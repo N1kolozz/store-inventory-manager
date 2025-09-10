@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+    <div class="store-container">
+        <aside class="store-sidebar">
+            <header class="store-sidebar__header">
+               <h2 class="store-sidebar__title">Stores List</h2> 
+
+               <div class="store-sidebar__search">
+                <input type="text" placeholder="Search">
+                <button type="button" class="store-sidebar__search-button"><img width="15px" src="assets/icons/search-icon.svg" alt="search-icon"></button>
+                <button type="reset" class="store-sidebar__reset-button"><img width="10px" src="assets/icons/reset-icon.svg" alt="reset-icon"></button>
+               </div>
+
+               <div class="controls__list-button">
+                <button type="button" class="controls__button-arrow"><img width="15px" src="assets/icons/arrowUp-icon.svg" alt="arrowUp-icon"></button>
+                <button type="button" class="controls__button-pin"><img width="15px" src="assets/icons/pin-icon.svg" alt="pin-icon"></button>
+               </div>
+
+            </header>
+
+            <main class="store-sidebar__body">
+                    <ul class="stores-items">
+                        <!-- Store items will be dynamically generated here -->
+                    </ul>
+            </main>
+
+            <footer class="store-sidebar__footer">
+                <button type="button" class="store-sidebar__footer-btn"><img width="15"  src="assets/icons/icons8-plus.svg" alt="">Create</button>
+            </footer>
+        </aside>
+
+        <section class="store-details-section">
+         <h2 class="store-details__title">Store's Details</h2>
+            <header class="store-details-section__header">
+                <div class="store-details__info">
+                    <div class="side-divider">
+                        <div class="store-details__info-item">
+                            <span class="store-details__info-label">Email:</span>
+                            <span class="store-details__info-value" id="storeEmail">-</span>
+                        </div>
+                        <div class="store-details__info-item">
+                            <span class="store-details__info-label">Phone:</span>
+                            <span class="store-details__info-value" id="storePhone">-</span>
+                        </div>
+                        <div class="store-details__info-item">
+                            <span class="store-details__info-label">Address:</span>
+                            <span class="store-details__info-value" id="storeAddress">-</span>
+                        </div>
+                    </div>
+                    <div class="side-divider">
+                        <div class="store-details__info-item">
+                            <span class="store-details__info-label">Established:</span>
+                            <span class="store-details__info-value" id="storeEstablished">-</span>
+                        </div>
+                        <div class="store-details__info-item">
+                            <span class="store-details__info-label">Floor Area:</span>
+                            <span class="store-details__info-value" id="storeFloorArea">-</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="controls__list-button controls__details-button">
+                    <button type="button" class="controls__button-arrow"><img width="15px" src="assets/icons/arrowUp-icon.svg" alt="arrowUp-icon"></button>
+                    <button type="button" class="controls__button-pin"><img width="15px" src="assets/icons/pin-icon.svg" alt="pin-icon"></button>
+                </div>
+            </header>
+
+            <div class="store-details-section__status">
+                <div class="store-details-section__status-items">
+                    <div class="store-details-section__status-item-quantity">
+                        <h2 class="store-details-section__status-quantity" id="itemsQuantity">24</h2>
+                        <span class="store-details-section__status-quantity-label">All</span>
+                    </div>
+                    <div class="store-details-section__status-item">
+                        <span class="store-details-section__status-number" id="statusOk">7</span>
+                        <img width="25" src="assets/icons/ok-icon.svg" alt="">
+                        <p class="store-details-section__status-quantity-label">Ok</p>
+                    </div>
+                    <div class="store-details-section__status-item">
+                        <span class="store-details-section__status-number" id="statusStorage">7</span>
+                        <img width="25" src="assets/icons/warining-icon.svg" alt="">
+                        <p class="store-details-section__status-quantity-label">Storage</p>
+                    </div>
+                    <div class="store-details-section__status-item">
+                        <span class="store-details-section__status-number" id="statusOutOfStock">7</span>
+                        <img width="25" src="assets/icons/error-icon.svg" alt="">
+                        <p class="store-details-section__status-quantity-label">Out of Stock</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="store-details-section__search-container">
+                <h2 class="store-details-section__search-title">Products</h2>
+                <div class="store-details-section__search">
+                    <input type="text" placeholder="Search">
+                    <button type="button" class="store-details-section__search-button"><img width="15px" src="assets/icons/search-icon.svg" alt="search-icon"></button>
+                    <button type="reset" class="store-details-section__reset-button"><img width="10px" src="assets/icons/reset-icon.svg" alt="reset-icon"></button>
+                </div>
+            </div>
+
+            <main class="store-details-section__content">
+                <div class="products-container">
+                    <table class="products-table">
+                        <thead class="products-table__head">
+                            <tr class="products-table__row">
+                                <th class="products-table__header">Name<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Price<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Specs<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Supplier Info<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Country of Origin<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Prod. Company<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header">Rating<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header products-table__icon-column"></th>
+                            </tr>
+                        </thead>
+                        <tbody class="products-table__body">
+                            <!-- Products will be dynamically loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <div class="no-store-selected">
+                        <img width="150" src="assets/icons/store-icon.svg" alt="">
+                        <h3 style="margin-bottom: 1rem; color: var(--primary-color);">No Store Selected</h3>
+                        <p>Please select a store to proceed</p>
+                </div>
+            </main>
+
+            <footer class="store-details-section__footer">
+                <button type="button" class="store-details-section__footer-btn"><img width="15" src="assets/icons/icons8-plus.svg" alt="">Create</button>
+                <button type="button" class="store-details-section__footer-btn delete-btn"><img width="15" src="assets/icons/delete-icon.svg" alt="">Delete</button>
+            </footer>
+
+        </section>
+    </div>
+    
+
+
+    <script type="module" src="./js/main.js"></script>
+</body>
+</html>
