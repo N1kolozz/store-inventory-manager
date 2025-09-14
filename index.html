@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <base href="/">
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
@@ -84,7 +85,7 @@
                     </div>
                     <div class="store-details-section__status-item">
                         <span class="store-details-section__status-number" id="statusStorage">7</span>
-                        <img width="25" src="assets/icons/warining-icon.svg" alt="">
+                        <img width="25" src="assets/icons/warning-icon.svg" alt="">
                         <p class="store-details-section__status-quantity-label">Storage</p>
                     </div>
                     <div class="store-details-section__status-item">
@@ -109,13 +110,13 @@
                     <table class="products-table">
                         <thead class="products-table__head">
                             <tr class="products-table__row">
-                                <th class="products-table__header">Name<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Price<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Specs<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Supplier Info<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Country of Origin<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Prod. Company<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
-                                <th class="products-table__header">Rating<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt=""></th>
+                                <th class="products-table__header sortable" data-sort-field="Name">Name<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="Price_amount">Price<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="Specs">Specs<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="SupplierInfo">Supplier Info<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="MadeIn">Country of Origin<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="ProductionCompanyName">Prod. Company<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
+                                <th class="products-table__header sortable" data-sort-field="Rating">Rating<img width="20px" src="assets/icons/reverseArrows-icon.svg" alt="" class="sort-icon"></th>
                                 <th class="products-table__header products-table__icon-column"></th>
                             </tr>
                         </thead>
@@ -143,6 +144,110 @@
     </div>
     
 
+    <div class="modal-overlay" id="createStoreModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Create new store</h2>
+            </div>
+            <div class="modal-body">
+                <form class="create-store-form" id="createStoreForm">
+                    <div class="form-group">
+                        <label for="createStoreName" class="form-label">Name: <span class="required">*</span></label>
+                        <input type="text" id="createStoreName" name="storeName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="createStoreEmail" class="form-label">Email: <span class="required">*</span></label>
+                        <input type="email" id="createStoreEmail" name="storeEmail" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="createStorePhone" class="form-label">Phone: <span class="required">*</span></label>
+                        <input type="tel" id="createStorePhone" name="storePhone" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="createStoreAddress" class="form-label">Address: <span class="required">*</span></label>
+                        <input type="text" id="createStoreAddress" name="storeAddress" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="createStoreEstablished" class="form-label">Established: <span class="required">*</span></label>
+                        <input type="datetime-local" id="createStoreEstablished" name="storeEstablished" class="form-input" placeholder="e.g. Dec 31, 2025, 11:59:58 PM" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="createStoreFloorArea" class="form-label">Floor Area: <span class="required">*</span></label>
+                        <input type="number" id="createStoreFloorArea" name="storeFloorArea" class="form-input" min="1" step="1" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn modal-btn-create" id="createStoreBtn">Create</button>
+                <button type="button" class="modal-btn modal-btn-cancel" id="cancelStoreBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal-overlay" id="createProductModal">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title">Create new product</h2>
+            </div>
+            <div class="modal-body">
+                <form class="create-product-form" id="createProductForm">
+                    <div class="form-group">
+                        <label for="productName" class="form-label">Name: <span class="required">*</span></label>
+                        <input type="text" id="productName" name="productName" class="form-input" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productPrice" class="form-label">Price: <span class="required">*</span></label>
+                        <input type="number" id="productPrice" name="productPrice" class="form-input" min="0" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productSpecs" class="form-label">Specs: <span class="required">*</span></label>
+                        <textarea id="productSpecs" name="productSpecs" class="form-input"required></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productRating" class="form-label">Rating: <span class="required">*</span></label>
+                        <input type="number" id="productRating" name="productRating" class="form-input" min="1" max="5" step="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productSupplierInfo" class="form-label">Supplier Info: <span class="required">*</span></label>
+                        <textarea id="productSupplierInfo" name="productSupplierInfo" class="form-input"></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCountryOfOrigin" class="form-label">Country of Origin: <span class="required">*</span></label>
+                        <input type="text" id="productCountryOfOrigin" name="productCountryOfOrigin" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productCompany" class="form-label">Prod. Company: <span class="required">*</span></label>
+                        <input type="text" id="productCompany" name="productCompany" class="form-input">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="productStatus" class="form-label">Status: <span class="required">*</span></label>
+                        <select id="productStatus" name="productStatus" class="form-input">
+                            <option value="OK">OK</option>
+                            <option value="STORAGE">Storage</option>
+                            <option value="OUT_OF_STOCK">Out of Stock</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="modal-btn modal-btn-create" id="createProductBtn">Create</button>
+                <button type="button" class="modal-btn modal-btn-cancel" id="cancelProductBtn">Cancel</button>
+            </div>
+        </div>
+    </div>
 
     <script type="module" src="./js/main.js"></script>
 </body>
